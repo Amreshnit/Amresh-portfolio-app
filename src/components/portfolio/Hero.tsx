@@ -3,8 +3,8 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ArrowDown, Mail, MapPin, Phone } from "lucide-react";
 
-// Using your local image path
-const profileImage = "/src/assets/amresh-profile.jpg";
+// Using the same path alias pattern as your other working images
+import profileImage from "@/assets/amresh-profile.jpg";
 
 const scrollTo = (id) => {
   const el = document.getElementById(id);
@@ -297,6 +297,14 @@ const Hero = () => {
                       src={profileImage}
                       alt="Amresh Kumar - Java Backend Developer"
                       className="w-80 h-80 object-cover transition-transform duration-700 hover:scale-110"
+                      onError={(e) => {
+                        console.log('Image failed to load:', profileImage);
+                        const target = e.target as HTMLImageElement;
+                        target.style.display = 'none';
+                      }}
+                      onLoad={() => {
+                        console.log('Image loaded successfully:', profileImage);
+                      }}
                     />
                   </div>
                 </div>
