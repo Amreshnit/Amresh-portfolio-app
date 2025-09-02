@@ -658,14 +658,15 @@ const Header = () => {
         </nav>
       </header>
 
-      {/* Enhanced Cover Letter Modal with Clickable Links */}
+      {/* Enhanced Cover Letter Modal with Mobile Responsive Design */}
       {isCoverLetterOpen && (
-        <div className="fixed inset-0 flex items-center justify-center bg-black/50 z-[100] p-4">
-          <div className="bg-white rounded-lg max-w-6xl w-full max-h-[95vh] overflow-hidden">
-            <div className="flex items-center justify-between p-4 border-b bg-gradient-to-r from-blue-50 to-purple-50">
-              <h1 className="text-lg font-bold">Enhanced Cover Letter Generator</h1>
-              <div className="flex items-center space-x-2">
-                <Button variant="outline" size="sm" onClick={resetCoverLetterForm}>
+        <div className="fixed inset-0 flex items-center justify-center bg-black/50 z-[100] p-2 sm:p-4">
+          <div className="bg-white rounded-lg w-full h-full sm:max-w-6xl sm:w-full sm:max-h-[95vh] overflow-hidden">
+            {/* Header */}
+            <div className="flex items-center justify-between p-3 sm:p-4 border-b bg-gradient-to-r from-blue-50 to-purple-50">
+              <h1 className="text-base sm:text-lg font-bold">Enhanced Cover Letter Generator</h1>
+              <div className="flex items-center space-x-1 sm:space-x-2">
+                <Button variant="outline" size="sm" onClick={resetCoverLetterForm} className="hidden sm:flex">
                   <X className="w-4 h-4 mr-1" />
                   Reset
                 </Button>
@@ -673,19 +674,19 @@ const Header = () => {
                   variant="outline"
                   size="sm"
                   onClick={generatePDF}
-                  className="bg-green-50 border-green-200 text-green-700 hover:bg-green-100"
+                  className="bg-green-50 border-green-200 text-green-700 hover:bg-green-100 text-xs sm:text-sm"
                 >
-                  <FileText className="w-4 h-4 mr-1" />
-                  Generate PDF
+                  <FileText className="w-4 h-4 mr-0 sm:mr-1" />
+                  <span className="hidden sm:inline">Generate </span>PDF
                 </Button>
                 <Button
                   variant="outline"
                   size="sm"
                   onClick={downloadCoverLetterHTML}
-                  className="bg-blue-50 border-blue-200 text-blue-700 hover:bg-blue-100"
+                  className="bg-blue-50 border-blue-200 text-blue-700 hover:bg-blue-100 text-xs sm:text-sm"
                 >
-                  <Download className="w-4 h-4 mr-1" />
-                  Download HTML
+                  <Download className="w-4 h-4 mr-0 sm:mr-1" />
+                  <span className="hidden sm:inline">Download </span>HTML
                 </Button>
                 <Button variant="ghost" size="sm" onClick={() => setIsCoverLetterOpen(false)}>
                   <X className="w-4 h-4" />
@@ -693,135 +694,147 @@ const Header = () => {
               </div>
             </div>
 
-            <div className="flex h-[calc(95vh-80px)]">
-              {/* Left Panel - Form */}
-              <div className="w-1/3 p-6 bg-gray-50 border-r overflow-y-auto">
-                <div className="space-y-4">
-                  <h3 className="text-md font-semibold text-gray-900 mb-4 flex items-center">
+            {/* Mobile-First Responsive Layout */}
+            <div className="flex flex-col lg:flex-row h-[calc(100vh-60px)] sm:h-[calc(95vh-80px)]">
+              {/* Form Panel - Full width on mobile, 1/3 on desktop */}
+              <div className="w-full lg:w-1/3 p-4 sm:p-6 bg-gray-50 lg:border-r overflow-y-auto max-h-[40vh] lg:max-h-none">
+                <div className="space-y-3 sm:space-y-4">
+                  <h3 className="text-sm sm:text-md font-semibold text-gray-900 mb-2 sm:mb-4 flex items-center">
                     <Building className="w-4 h-4 mr-2 text-blue-600" />
                     Company Details
                   </h3>
                   
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">Company Name</label>
-                    <input
-                      type="text"
-                      value={companyDetails.companyName}
-                      onChange={(e) => handleInputChange("companyName", e.target.value)}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                      placeholder="e.g., Google Inc."
-                    />
-                  </div>
-                  
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">Hiring Manager</label>
-                    <input
-                      type="text"
-                      value={companyDetails.hiringManager}
-                      onChange={(e) => handleInputChange("hiringManager", e.target.value)}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                      placeholder="e.g., Mr. John Smith"
-                    />
-                  </div>
-                  
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">Address</label>
-                    <textarea
-                      value={companyDetails.address}
-                      onChange={(e) => handleInputChange("address", e.target.value)}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                      rows={3}
-                      placeholder="Company address (optional)"
-                    />
-                  </div>
-                  
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">Position</label>
-                    <input
-                      type="text"
-                      value={companyDetails.position}
-                      onChange={(e) => {
-                        handleInputChange("position", e.target.value);
-                        handleInputChange("subject", `Application for ${e.target.value} Position`);
-                      }}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                      placeholder="e.g., Senior Java Developer"
-                    />
-                  </div>
-                  
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">Years of Experience</label>
-                    <input
-                      type="text"
-                      value={companyDetails.yearsOfExperience}
-                      onChange={(e) => handleInputChange("yearsOfExperience", e.target.value)}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                      placeholder="e.g., 3+, 5, 2-3"
-                    />
-                  </div>
-                  
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">Current Organization</label>
-                    <input
-                      type="text"
-                      value={companyDetails.currentOrganization}
-                      onChange={(e) => handleInputChange("currentOrganization", e.target.value)}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                      placeholder="e.g., Kanerika Software"
-                    />
-                  </div>
-                  
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">Career Level</label>
-                    <select
-                      value={companyDetails.careerLevel}
-                      onChange={(e) => handleInputChange("careerLevel", e.target.value)}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    >
-                      <option value="entry-level">Entry Level</option>
-                      <option value="mid-level">Mid Level</option>
-                      <option value="senior-level">Senior Level</option>
-                      <option value="lead">Lead/Principal</option>
-                    </select>
+                  {/* Two-column layout on mobile for better space usage */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-3 sm:gap-4">
+                    <div>
+                      <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-1">Company Name</label>
+                      <input
+                        type="text"
+                        value={companyDetails.companyName}
+                        onChange={(e) => handleInputChange("companyName", e.target.value)}
+                        className="w-full px-2 sm:px-3 py-1.5 sm:py-2 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        placeholder="e.g., Google Inc."
+                      />
+                    </div>
+                    
+                    <div>
+                      <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-1">Hiring Manager</label>
+                      <input
+                        type="text"
+                        value={companyDetails.hiringManager}
+                        onChange={(e) => handleInputChange("hiringManager", e.target.value)}
+                        className="w-full px-2 sm:px-3 py-1.5 sm:py-2 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        placeholder="e.g., Mr. John Smith"
+                      />
+                    </div>
+                    
+                    <div className="sm:col-span-2 lg:col-span-1">
+                      <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-1">Address</label>
+                      <textarea
+                        value={companyDetails.address}
+                        onChange={(e) => handleInputChange("address", e.target.value)}
+                        className="w-full px-2 sm:px-3 py-1.5 sm:py-2 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        rows={2}
+                        placeholder="Company address (optional)"
+                      />
+                    </div>
+                    
+                    <div>
+                      <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-1">Position</label>
+                      <input
+                        type="text"
+                        value={companyDetails.position}
+                        onChange={(e) => {
+                          handleInputChange("position", e.target.value);
+                          handleInputChange("subject", `Application for ${e.target.value} Position`);
+                        }}
+                        className="w-full px-2 sm:px-3 py-1.5 sm:py-2 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        placeholder="e.g., Senior Java Developer"
+                      />
+                    </div>
+                    
+                    <div>
+                      <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-1">Years of Experience</label>
+                      <input
+                        type="text"
+                        value={companyDetails.yearsOfExperience}
+                        onChange={(e) => handleInputChange("yearsOfExperience", e.target.value)}
+                        className="w-full px-2 sm:px-3 py-1.5 sm:py-2 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        placeholder="e.g., 3+, 5, 2-3"
+                      />
+                    </div>
+                    
+                    <div>
+                      <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-1">Current Organization</label>
+                      <input
+                        type="text"
+                        value={companyDetails.currentOrganization}
+                        onChange={(e) => handleInputChange("currentOrganization", e.target.value)}
+                        className="w-full px-2 sm:px-3 py-1.5 sm:py-2 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        placeholder="e.g., Kanerika Software"
+                      />
+                    </div>
+                    
+                    <div>
+                      <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-1">Career Level</label>
+                      <select
+                        value={companyDetails.careerLevel}
+                        onChange={(e) => handleInputChange("careerLevel", e.target.value)}
+                        className="w-full px-2 sm:px-3 py-1.5 sm:py-2 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      >
+                        <option value="entry-level">Entry Level</option>
+                        <option value="mid-level">Mid Level</option>
+                        <option value="senior-level">Senior Level</option>
+                        <option value="lead">Lead/Principal</option>
+                      </select>
+                    </div>
                   </div>
 
                   <div className="pt-2">
-                    <div className="flex items-center text-sm text-gray-600">
-                      <Calendar className="w-4 h-4 mr-2" />
+                    <div className="flex items-center text-xs sm:text-sm text-gray-600">
+                      <Calendar className="w-3 sm:w-4 h-3 sm:h-4 mr-2" />
                       Date: {getCurrentDate()}
                     </div>
                   </div>
+
+                  {/* Mobile Reset Button */}
+                  <div className="block sm:hidden">
+                    <Button variant="outline" size="sm" onClick={resetCoverLetterForm} className="w-full">
+                      <X className="w-4 h-4 mr-2" />
+                      Reset Form
+                    </Button>
+                  </div>
                 </div>
 
-                <div className="mt-6 p-4 bg-blue-50 rounded-lg">
-                  <h4 className="text-sm font-medium text-blue-900 mb-2">Enhanced Features:</h4>
+                <div className="mt-4 sm:mt-6 p-3 sm:p-4 bg-blue-50 rounded-lg">
+                  <h4 className="text-xs sm:text-sm font-medium text-blue-900 mb-1 sm:mb-2">Enhanced Features:</h4>
                   <ul className="text-xs text-blue-800 space-y-1">
-                    <li>• <strong>Generate PDF:</strong> Opens print dialog with clickable links preserved</li>
-                    <li>• <strong>Download HTML:</strong> Downloads file with fully clickable professional links</li>
-                    <li>• All contact links are functional in both PDF and HTML formats</li>
-                    <li>• Professional formatting maintained across all output types</li>
+                    <li>• PDF with clickable links</li>
+                    <li>• HTML with professional links</li>
+                    <li>• Mobile-responsive design</li>
+                    <li>• Real-time preview updates</li>
                   </ul>
                 </div>
               </div>
 
-              {/* Right Panel - Live Preview */}
-              <div className="w-2/3 p-8 overflow-y-auto bg-white">
-                <div className="max-w-3xl mx-auto border border-gray-200 p-8 bg-white shadow-sm" style={{ fontSize: '11px', lineHeight: '1.4' }}>
+              {/* Preview Panel - Full width on mobile, 2/3 on desktop */}
+              <div className="flex-1 p-3 sm:p-6 lg:p-8 overflow-y-auto bg-white">
+                <div className="max-w-full lg:max-w-3xl mx-auto border border-gray-200 p-4 sm:p-6 lg:p-8 bg-white shadow-sm text-xs sm:text-sm" style={{ lineHeight: '1.4' }}>
                   {/* Header */}
-                  <div className="text-center mb-4 pb-2 border-b-2 border-gray-800">
-                    <h1 className="text-lg font-bold text-gray-900 mb-1 tracking-wider">AMRESH KUMAR</h1>
-                    <p className="text-sm font-semibold text-gray-600 mb-2">{companyDetails.position}</p>
-                    <div className="text-xs text-gray-700 flex items-center justify-center space-x-2 flex-wrap">
+                  <div className="text-center mb-3 sm:mb-4 pb-2 border-b-2 border-gray-800">
+                    <h1 className="text-sm sm:text-base lg:text-lg font-bold text-gray-900 mb-1 tracking-wider">AMRESH KUMAR</h1>
+                    <p className="text-xs sm:text-sm font-semibold text-gray-600 mb-2">{companyDetails.position}</p>
+                    <div className="text-xs text-gray-700 flex items-center justify-center space-x-1 sm:space-x-2 flex-wrap gap-1">
                       <span>
                         <a href="mailto:amreshnitjsr09@gmail.com" className="text-blue-600 hover:underline">
                           amreshnitjsr09@gmail.com
                         </a>
                       </span>
-                      <span>|</span>
+                      <span className="hidden sm:inline">|</span>
                       <span>+91 9122501795</span>
-                      <span>|</span>
+                      <span className="hidden sm:inline">|</span>
                       <span className="flex items-center">
-                        <Linkedin className="w-3 h-3 mr-1" />
+                        <Linkedin className="w-2 sm:w-3 h-2 sm:h-3 mr-1" />
                         <a 
                           href="https://www.linkedin.com/in/amresh-kumar-467069183/" 
                           target="_blank" 
@@ -831,9 +844,9 @@ const Header = () => {
                           LinkedIn
                         </a>
                       </span>
-                      <span>|</span>
+                      <span className="hidden sm:inline">|</span>
                       <span className="flex items-center">
-                        <Github className="w-3 h-3 mr-1" />
+                        <Github className="w-2 sm:w-3 h-2 sm:h-3 mr-1" />
                         <a 
                           href="https://github.com/Amreshnit" 
                           target="_blank" 
@@ -843,9 +856,9 @@ const Header = () => {
                           GitHub
                         </a>
                       </span>
-                      <span>|</span>
+                      <span className="hidden sm:inline">|</span>
                       <span className="flex items-center">
-                        <Code className="w-3 h-3 mr-1" />
+                        <Code className="w-2 sm:w-3 h-2 sm:h-3 mr-1" />
                         <a 
                           href="https://leetcode.com/u/qoHaLDRJ8N/" 
                           target="_blank" 
@@ -859,13 +872,13 @@ const Header = () => {
                   </div>
 
                   {/* Date */}
-                  <div className="text-right mb-3 text-xs text-gray-600">
+                  <div className="text-right mb-2 sm:mb-3 text-xs text-gray-600">
                     {getCurrentDate()}
                   </div>
 
                   {/* Recipient */}
                   {(companyDetails.companyName || companyDetails.address) && (
-                    <div className="mb-3 text-xs text-gray-800">
+                    <div className="mb-2 sm:mb-3 text-xs text-gray-800">
                       <div>{companyDetails.hiringManager}</div>
                       {companyDetails.companyName && (
                         <div className="font-bold text-gray-900">{companyDetails.companyName}</div>
@@ -877,7 +890,7 @@ const Header = () => {
                   )}
 
                   {/* Subject */}
-                  <div className="mb-3">
+                  <div className="mb-2 sm:mb-3">
                     <p className="font-bold text-gray-900 text-xs">
                       Subject: {companyDetails.subject}
                     </p>
@@ -921,10 +934,10 @@ const Header = () => {
                   </div>
 
                   {/* Closing */}
-                  <div className="mt-4 space-y-1 text-xs">
+                  <div className="mt-3 sm:mt-4 space-y-1 text-xs">
                     <p className="text-gray-900">Sincerely,</p>
-                    <div className="mt-6">
-                      <p className="font-bold text-gray-900 text-sm">Amresh Kumar</p>
+                    <div className="mt-4 sm:mt-6">
+                      <p className="font-bold text-gray-900 text-xs sm:text-sm">Amresh Kumar</p>
                     </div>
                   </div>
                 </div>
