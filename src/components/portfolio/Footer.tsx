@@ -216,9 +216,9 @@ const Footer = () => {
                 © {new Date().getFullYear()} Amresh Kumar. All Rights Reserved.
               </span>
               <Heart className="w-4 h-4 text-red-500 fill-current animate-pulse" />
-              <span className="text-xs opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                Made with love
-              </span>
+              {/* <span className="text-xs opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                
+              </span> */}
             </div>
 
             {/* Professional Links */}

@@ -1,6 +1,6 @@
-import { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Menu, X, Download, FileText, Building, Calendar, Github, Linkedin, Code } from "lucide-react";
+import { Download, FileText, X, Building, Calendar, Github, Linkedin, Code } from "lucide-react";
 
 interface CompanyDetails {
   companyName: string;
@@ -15,10 +15,8 @@ interface CompanyDetails {
   currentOrganization: string;
 }
 
-const Header = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isCoverLetterOpen, setIsCoverLetterOpen] = useState(false);
+const DynamicCoverLetter = () => {
+  const [isOpen, setIsOpen] = useState(false);
   const [companyDetails, setCompanyDetails] = useState<CompanyDetails>({
     companyName: "",
     hiringManager: "Hiring Manager",
@@ -32,30 +30,11 @@ const Header = () => {
     currentOrganization: "Kanerika Software",
   });
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  const navigation = [
-    { name: "About", href: "#about" },
-    { name: "Experience", href: "#experience" },
-    { name: "Education", href: "#education" },
-    { name: "Projects", href: "#projects" },
-    { name: "Certifications", href: "#certifications" },
-    { name: "Contact", href: "#contact" },
-  ];
-
-  const handleResumeDownload = () => {
-    const link = document.createElement('a');
-    link.href = '/resume.pdf';
-    link.download = 'Amresh_Kumar_Resume.pdf';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+  const handleInputChange = (field: keyof CompanyDetails, value: string) => {
+    setCompanyDetails((prev) => ({
+      ...prev,
+      [field]: value,
+    }));
   };
 
   const getCurrentDate = () => {
@@ -64,13 +43,6 @@ const Header = () => {
       month: 'long',
       day: 'numeric'
     });
-  };
-
-  const handleInputChange = (field: keyof CompanyDetails, value: string) => {
-    setCompanyDetails(prev => ({
-      ...prev,
-      [field]: value
-    }));
   };
 
   const generateCareerDescription = () => {
@@ -245,6 +217,7 @@ const Header = () => {
       printWindow.document.write(htmlContent);
       printWindow.document.close();
       
+      // Auto-trigger print dialog after content loads
       setTimeout(() => {
         printWindow.print();
       }, 250);
@@ -426,21 +399,25 @@ const Header = () => {
 </body>
 </html>`;
 
+    // Create a blob from the HTML content
     const blob = new Blob([htmlContent], { type: 'text/html' });
     const url = URL.createObjectURL(blob);
     
+    // Create download link
     const link = document.createElement('a');
     link.href = url;
     link.download = `${companyName ? companyName.replace(/[^a-zA-Z0-9]/g, "_") + "_" : ""}Cover_Letter_Amresh_Kumar.html`;
     
+    // Trigger download
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
     
+    // Clean up
     URL.revokeObjectURL(url);
   };
 
-  const resetCoverLetterForm = () => {
+  const resetForm = () => {
     setCompanyDetails({
       companyName: "",
       hiringManager: "Hiring Manager",
@@ -455,217 +432,20 @@ const Header = () => {
     });
   };
 
-  // Professional Logo Component
-  const ProfessionalLogo = () => (
-    <div className="flex items-center space-x-3">
-      <div className="relative">
-        <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 via-purple-600 to-blue-700 p-0.5 shadow-lg">
-          <div className="w-full h-full rounded-full bg-white flex items-center justify-center">
-            <div className="relative">
-              <span className="text-lg font-bold bg-gradient-to-br from-blue-500 via-purple-600 to-blue-700 bg-clip-text text-transparent">
-                AK
-              </span>
-              <div className="absolute -top-1 -right-1 w-1.5 h-1.5 bg-gradient-to-br from-blue-400 to-purple-500 rounded-full"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className="flex flex-col">
-        <span className="text-xl font-bold text-gray-900 leading-tight">
-          Amresh Kumar
-        </span>
-        <span className="text-xs text-gray-600 font-medium tracking-wide">
-          SOFTWARE ENGINEER
-        </span>
-      </div>
-    </div>
-  );
-
   return (
     <>
-      <header
-        className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-          isScrolled
-            ? "bg-white/95 backdrop-blur-md shadow-lg"
-            : "bg-transparent"
-        }`}
-      >
-        <nav className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center py-4">
-            <ProfessionalLogo />
-
-            {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center space-x-8">
-              {navigation.map((item) => (
-                <a
-                  key={item.name}
-                  href={item.href}
-                  className="text-gray-600 hover:text-blue-600 transition-colors duration-300 font-medium"
-                >
-                  {item.name}
-                </a>
-              ))}
-            </div>
-
-            {/* Social Links & Actions */}
-            <div className="hidden md:flex items-center space-x-4">
-              <a
-                href="https://github.com/Amreshnit"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-600 hover:text-blue-600 transition-colors"
-                title="GitHub"
-              >
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                </svg>
-              </a>
-              <a
-                href="https://www.linkedin.com/in/amresh-kumar-467069183/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-600 hover:text-blue-600 transition-colors"
-                title="LinkedIn"
-              >
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                </svg>
-              </a>
-              <a
-                href="https://leetcode.com/u/qoHaLDRJ8N/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-600 hover:text-blue-600 transition-colors"
-                title="LeetCode"
-              >
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M13.483 0a1.374 1.374 0 0 0-.961.438L7.116 6.226l-3.854 4.126a5.266 5.266 0 0 0-1.209 2.104 5.35 5.35 0 0 0-.125.513 5.527 5.527 0 0 0 .062 2.362 5.83 5.83 0 0 0 .349 1.017 5.938 5.938 0 0 0 1.271 1.818l4.277 4.193.039.038c2.248 2.165 5.518 2.153 7.758-.025l.039-.038a5.313 5.313 0 0 0 1.617-3.81 5.26 5.26 0 0 0-1.617-3.81c-.87-.83-4.346-4.314-4.346-4.314l-.015-.018L12.5 11.5 8.158 15.842a.83.83 0 0 1-1.175 0 .83.83 0 0 1 0-1.175l3.855-3.855a.83.83 0 0 1 1.175 0l.525.525c.465.465.465 1.22 0 1.685l-.525.525a.83.83 0 1 0 1.175 1.175l.525-.525c1.393-1.393 1.393-3.657 0-5.05l-.525-.525c-1.393-1.393-3.657-1.393-5.05 0L3.283 12.483c-2.248 2.139-2.284 5.653-.081 7.874 2.203 2.221 5.717 2.186 7.965.047l4.346-4.274a5.26 5.26 0 0 0 1.617-3.81 5.313 5.313 0 0 0-1.617-3.81L10.852.438A1.374 1.374 0 0 0 9.891 0H13.483z"/>
-                </svg>
-              </a>
-              
-              {/* Cover Letter Button */}
-              <Button
-                variant="outline"
-                size="sm"
-                onClick={() => setIsCoverLetterOpen(true)}
-                className="flex items-center space-x-2"
-              >
-                <FileText className="w-4 h-4" />
-                <span>Cover Letter</span>
-              </Button>
-              
-              {/* Resume Button */}
-              <Button 
-                className="bg-blue-600 hover:bg-blue-700 text-white" 
-                size="sm" 
-                onClick={handleResumeDownload}
-              >
-                <Download className="w-4 h-4 mr-2" />
-                Resume
-              </Button>
-            </div>
-
-            {/* Mobile menu button */}
-            <div className="md:hidden">
-              <Button
-                variant="ghost"
-                size="icon"
-                onClick={() => setIsMenuOpen(!isMenuOpen)}
-              >
-                {isMenuOpen ? (
-                  <X className="w-6 h-6" />
-                ) : (
-                  <Menu className="w-6 h-6" />
-                )}
-              </Button>
-            </div>
-          </div>
-
-          {/* Mobile Navigation */}
-          {isMenuOpen && (
-            <div className="md:hidden">
-              <div className="px-2 pt-2 pb-3 space-y-1 bg-white/95 backdrop-blur-md rounded-lg shadow-lg mt-2">
-                {navigation.map((item) => (
-                  <a
-                    key={item.name}
-                    href={item.href}
-                    className="block px-3 py-2 text-gray-600 hover:text-blue-600 transition-colors duration-300 font-medium"
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    {item.name}
-                  </a>
-                ))}
-                <div className="flex items-center space-x-4 px-3 py-2">
-                  <a
-                    href="https://github.com/Amreshnit"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-gray-600 hover:text-blue-600 transition-colors"
-                    title="GitHub"
-                  >
-                    <Github className="w-5 h-5" />
-                  </a>
-                  <a
-                    href="https://www.linkedin.com/in/amresh-kumar-467069183/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-gray-600 hover:text-blue-600 transition-colors"
-                    title="LinkedIn"
-                  >
-                    <Linkedin className="w-5 h-5" />
-                  </a>
-                  <a
-                    href="https://leetcode.com/u/qoHaLDRJ8N/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-gray-600 hover:text-blue-600 transition-colors"
-                    title="LeetCode"
-                  >
-                    <Code className="w-5 h-5" />
-                  </a>
-                </div>
-                
-                {/* Mobile Cover Letter Button */}
-                <div className="px-3 py-2">
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    onClick={() => {
-                      setIsCoverLetterOpen(true);
-                      setIsMenuOpen(false);
-                    }}
-                    className="w-full mb-2"
-                  >
-                    <FileText className="w-4 h-4 mr-2" />
-                    Cover Letter
-                  </Button>
-                </div>
-                
-                {/* Mobile Resume Button */}
-                <div className="px-3 py-2">
-                  <Button 
-                    className="bg-blue-600 hover:bg-blue-700 text-white w-full" 
-                    size="sm"
-                    onClick={handleResumeDownload}
-                  >
-                    <Download className="w-4 h-4 mr-2" />
-                    Resume
-                  </Button>
-                </div>
-              </div>
-            </div>
-          )}
-        </nav>
-      </header>
-
-      {/* Enhanced Cover Letter Modal with Clickable Links */}
-      {isCoverLetterOpen && (
+      <Button variant="outline" size="sm" onClick={() => setIsOpen(true)}>
+        <FileText className="w-4 h-4 mr-2" />
+        Cover Letter
+      </Button>
+      
+      {isOpen && (
         <div className="fixed inset-0 flex items-center justify-center bg-black/50 z-[100] p-4">
           <div className="bg-white rounded-lg max-w-6xl w-full max-h-[95vh] overflow-hidden">
             <div className="flex items-center justify-between p-4 border-b bg-gradient-to-r from-blue-50 to-purple-50">
-              <h1 className="text-lg font-bold">Enhanced Cover Letter Generator</h1>
+              <h1 className="text-lg font-bold">Cover Letter Generator</h1>
               <div className="flex items-center space-x-2">
-                <Button variant="outline" size="sm" onClick={resetCoverLetterForm}>
+                <Button variant="outline" size="sm" onClick={resetForm}>
                   <X className="w-4 h-4 mr-1" />
                   Reset
                 </Button>
@@ -687,7 +467,7 @@ const Header = () => {
                   <Download className="w-4 h-4 mr-1" />
                   Download HTML
                 </Button>
-                <Button variant="ghost" size="sm" onClick={() => setIsCoverLetterOpen(false)}>
+                <Button variant="ghost" size="sm" onClick={() => setIsOpen(false)}>
                   <X className="w-4 h-4" />
                 </Button>
               </div>
@@ -794,12 +574,12 @@ const Header = () => {
                 </div>
 
                 <div className="mt-6 p-4 bg-blue-50 rounded-lg">
-                  <h4 className="text-sm font-medium text-blue-900 mb-2">Enhanced Features:</h4>
+                  <h4 className="text-sm font-medium text-blue-900 mb-2">Action Options:</h4>
                   <ul className="text-xs text-blue-800 space-y-1">
                     <li>• <strong>Generate PDF:</strong> Opens print dialog with clickable links preserved</li>
                     <li>• <strong>Download HTML:</strong> Downloads file with fully clickable professional links</li>
-                    <li>• All contact links are functional in both PDF and HTML formats</li>
-                    <li>• Professional formatting maintained across all output types</li>
+                    <li>• Current organization personalizes experience section</li>
+                    <li>• All links are fully functional in both formats</li>
                   </ul>
                 </div>
               </div>
@@ -937,4 +717,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default DynamicCoverLetter;
