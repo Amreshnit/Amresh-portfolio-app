@@ -664,7 +664,7 @@ const Header = () => {
           <div className="bg-white rounded-lg w-full h-full sm:max-w-6xl sm:w-full sm:max-h-[95vh] overflow-hidden">
             {/* Header */}
             <div className="flex items-center justify-between p-3 sm:p-4 border-b bg-gradient-to-r from-blue-50 to-purple-50">
-              <h1 className="text-base sm:text-lg font-bold">Enhanced Cover Letter Generator</h1>
+              <h1 className="text-base sm:text-lg font-bold">Cover Letter Generator</h1>
               <div className="flex items-center space-x-1 sm:space-x-2">
                 <Button variant="outline" size="sm" onClick={resetCoverLetterForm} className="hidden sm:flex">
                   <X className="w-4 h-4 mr-1" />
