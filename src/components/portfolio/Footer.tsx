@@ -103,7 +103,7 @@ const Footer = () => {
                   {[
                     { 
                       icon: MapPin, 
-                      text: "Sasaram, Bihar, India", 
+                      text: "Permanent Address: Sasaram, Bihar, India", 
                       href: "https://www.google.com/maps/search/?api=1&query=JAY+MAHAVEER+REAL+ESTATE%2C+Patel+Bhavan%2C+Patel+Nagar%2C+Ambedkar+path+Badhaiyabag%2C+Takiya%2C+Sasaram%2C+Bihar+821113" 
                     },
                     { icon: Phone, text: "+91 9122501795", href: "tel:+919122501795" },
@@ -236,8 +236,8 @@ const Footer = () => {
                 className="relative overflow-hidden transition-all duration-300 hover:shadow-lg hover:scale-105 border-primary/20 hover:border-primary/40"
               >
                 <a 
-                  href="/resume.pdf" 
-                  download="Amresh_Kumar_Resume.pdf"
+                  href="/Amresh_Kumar_Software_Engineer.pdf" 
+                  download="Amresh_Kumar_Software_Engineer.pdf"
                   className="flex items-center gap-2 relative z-10"
                 >
                   <Download className="w-4 h-4 transition-transform duration-300 group-hover:scale-110 group-hover:-translate-y-0.5" />

@@ -320,7 +320,7 @@ const Hero = () => {
                     animation: visibleElements >= 7 ? 'floatGentle 6s ease-in-out infinite' : 'none'
                   }}
                 >
-                  Available for Work
+                  Open to work
                 </div>
                 
                 <div 

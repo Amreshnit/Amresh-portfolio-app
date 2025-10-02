@@ -23,7 +23,7 @@ const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
+
     // Create email content
     const emailSubject = encodeURIComponent(`Contact Form: ${formData.subject}`);
     const emailBody = encodeURIComponent(`
@@ -37,15 +37,15 @@ ${formData.message}
 ---
 Sent from portfolio contact form
     `);
-    
+
     // Open Gmail with pre-filled content
     const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=amreshnitjsr09@gmail.com&su=${emailSubject}&body=${emailBody}`;
     window.open(gmailUrl, '_blank');
-    
+
     // Reset form
     setFormData({ name: "", email: "", subject: "", message: "" });
     setIsSubmitting(false);
-    
+
     // Show success message
     alert("Gmail opened with your message. Please click send in Gmail to submit your message.");
   };
@@ -72,7 +72,7 @@ Sent from portfolio contact form
   };
 
   const handleMapClick = () => {
-    const mapUrl = "https://www.google.com/maps/place/JAY+MAHAVEER+REAL+ESTATE/@24.9611301,83.9945531,17z/data=!3m1!4b1!4m6!3m5!1s0x398db73208f85233:0x860ff9dbe4f1472!8m2!3d24.9611253!4d83.999424!16s%2Fg%2F11k36q8yj3?entry=ttu&g_ep=EgoyMDI1MDgyNS4wIKXMDSoASAFQAw%3D%3D";
+    const mapUrl = "https://www.google.com/maps/dir//Plot+A147%26148%26149,+Kondapur,+Raghavendra+Colony,+Telangana+500084/@17.473488,78.2777552,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x3bcb937c92815677:0x659e33a03a5109c8!2m2!1d78.3601571!2d17.473505?entry=ttu&g_ep=EgoyMDI1MDkyOS4wIKXMDSoASAFQAw%3D%3D";
     window.open(mapUrl, '_blank');
   };
 
@@ -101,7 +101,7 @@ Sent from portfolio contact form
     {
       icon: MapPin,
       label: "Location",
-      value: "Patel Bhavan, Patel Nagar, Ambedkar Path, Badhaiyabag, Takiya Bazar Near Royal Palace, Sasaram Bihar - 821115",
+      value: "Sritas Sri Nivasam, Plot A147&148&149, Kondapur, Raghavendra Colony, Telangana 500084",
       onClick: handleMapClick,
       className: "hover:bg-red-50 dark:hover:bg-red-950/20"
     }
@@ -152,7 +152,7 @@ Sent from portfolio contact form
           animation-delay: 1.5s;
         }
       `}</style>
-      
+
       <section id="contact" className="py-20 bg-gradient-to-br from-background via-background to-secondary/10">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-6xl mx-auto">
@@ -162,7 +162,7 @@ Sent from portfolio contact form
                 Get In Touch
               </h2>
               <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                I'm always open to discussing new opportunities, collaborating on interesting projects, 
+                I'm always open to discussing new opportunities, collaborating on interesting projects,
                 or simply having a conversation about technology and software development.
               </p>
             </div>
@@ -181,10 +181,10 @@ Sent from portfolio contact form
                   </CardHeader>
                   <CardContent className="space-y-6">
                     <p className="text-muted-foreground">
-                      Whether you're looking for a backend developer for your team, want to discuss 
+                      Whether you're looking for a backend developer for your team, want to discuss
                       a potential project, or just want to connect with a fellow developer, I'd love to hear from you.
                     </p>
-                    
+
                     {/* WhatsApp Button */}
                     <div className="mb-6">
                       <Button
@@ -192,12 +192,12 @@ Sent from portfolio contact form
                         className="w-full bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
                       >
                         <svg className="w-5 h-5 mr-2" viewBox="0 0 24 24" fill="currentColor">
-                          <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217s.232.002.333.012c.107.01.251-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289-.086.101-.181.226-.259.305-.087.087-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.333.202c.043.072.043.419-.101.824z"/>
+                          <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217s.232.002.333.012c.107.01.251-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289-.086.101-.181.226-.259.305-.087.087-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.333.202c.043.072.043.419-.101.824z" />
                         </svg>
                         Chat on WhatsApp
                       </Button>
                     </div>
-                    
+
                     {/* Contact Details */}
                     <div className="space-y-4">
                       {contactInfo.map((item, index) => {
@@ -237,7 +237,7 @@ Sent from portfolio contact form
                   <CardContent className="p-0">
                     <div className="relative h-64 w-full">
                       <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3608.4089876543!2d83.9945531!3d24.9611301!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x398db73208f85233%3A0x860ff9dbe4f1472!2sJAY%20MAHAVEER%20REAL%20ESTATE!5e0!3m2!1sen!2sin!4v1693123456789!5m2!1sen!2sin"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3805.7116487105336!2d78.35758207462891!3d17.473510100319434!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb937c92815677%3A0x659e33a03a5109c8!2sSritas%20Sri%20Nivasam!5e0!3m2!1sen!2sin!4v1759405183129!5m2!1sen!2sin"
                         width="100%"
                         height="100%"
                         style={{ border: 0 }}
@@ -271,7 +271,7 @@ Sent from portfolio contact form
                       {socialLinks.map((social, index) => {
                         const IconComponent = social.icon;
                         return (
-                          <a 
+                          <a
                             key={index}
                             href={social.href}
                             target="_blank"
@@ -333,7 +333,7 @@ Sent from portfolio contact form
                           />
                         </div>
                       </div>
-                      
+
                       <div className="space-y-2">
                         <Label htmlFor="subject" className="font-medium">Subject</Label>
                         <Input
@@ -345,7 +345,7 @@ Sent from portfolio contact form
                           className="transition-all duration-300 focus:ring-2 focus:ring-primary/20 focus:border-primary hover:border-primary/50"
                         />
                       </div>
-                      
+
                       <div className="space-y-2">
                         <Label htmlFor="message" className="font-medium">Message</Label>
                         <Textarea
@@ -358,8 +358,8 @@ Sent from portfolio contact form
                           className="transition-all duration-300 focus:ring-2 focus:ring-primary/20 focus:border-primary hover:border-primary/50 resize-none"
                         />
                       </div>
-                      
-                      <Button 
+
+                      <Button
                         onClick={handleSubmit}
                         disabled={isSubmitting || !formData.name || !formData.email || !formData.subject || !formData.message}
                         className="w-full bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-white shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed"
@@ -395,7 +395,7 @@ Sent from portfolio contact form
                     Quick Response Guaranteed
                   </h3>
                   <p className="text-muted-foreground">
-                    I typically respond to all messages within 24 hours. For urgent matters, 
+                    I typically respond to all messages within 24 hours. For urgent matters,
                     feel free to reach out via phone or WhatsApp for faster communication.
                   </p>
                 </CardContent>

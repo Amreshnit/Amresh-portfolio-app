@@ -49,13 +49,18 @@ const Header = () => {
     { name: "Contact", href: "#contact" },
   ];
 
+  // const handleResumeDownload = () => {
+  //   const link = document.createElement('a');
+  //   link.href = '/Amresh_Kumar_Software_Engineer.pdf';
+  //   link.download = 'Amresh_Kumar_Software_Engineer.pdf';
+  //   document.body.appendChild(link);
+  //   link.click();
+  //   document.body.removeChild(link);
+  // };
+
   const handleResumeDownload = () => {
-    const link = document.createElement('a');
-    link.href = '/resume.pdf';
-    link.download = 'Amresh_Kumar_Resume.pdf';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+    // Open PDF in new tab instead of downloading
+    window.open('/Amresh_Kumar_Software_Engineer.pdf', '_blank');
   };
 
   const getCurrentDate = () => {
