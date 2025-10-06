@@ -213,7 +213,7 @@ const Hero = () => {
                 }`}
               >
                 {[
-                  { Icon: MapPin, text: "Hyderabad, Telangana, India" },
+                  { Icon: MapPin, text: "Hyderabad, India" },
                   { Icon: Phone, text: "+91 9122501795" },
                   { Icon: Mail, text: "amreshnitjsr09@gmail.com" }
                 ].map(({ Icon, text }, index) => (
