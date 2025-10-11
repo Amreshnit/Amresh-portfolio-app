@@ -202,7 +202,7 @@ const Header = () => {
       <a href="mailto:amreshnitjsr09@gmail.com">amreshnitjsr09@gmail.com</a> | +91 9122501795 | 
       <a href="https://www.linkedin.com/in/amresh-kumar-467069183/" target="_blank">linkedin.com/in/amresh-kumar-467069183</a> | 
       <a href="https://github.com/Amreshnit" target="_blank">github.com/Amreshnit</a> | 
-      <a href="https://leetcode.com/u/qoHaLDRJ8N/" target="_blank">leetcode.com/u/qoHaLDRJ8N</a>
+      <a href="https://leetcode.com/u/Amresh9122/" target="_blank">leetcode.com/u/qoHaLDRJ8N</a>
     </div>
   </div>
   
@@ -385,7 +385,7 @@ const Header = () => {
         <a href="https://github.com/Amreshnit" target="_blank" rel="noopener noreferrer">GitHub Portfolio</a>
       </span> | 
       <span class="contact-link">
-        <a href="https://leetcode.com/u/qoHaLDRJ8N/" target="_blank" rel="noopener noreferrer">LeetCode Profile</a>
+        <a href="https://leetcode.com/u/Amresh9122/" target="_blank" rel="noopener noreferrer">LeetCode Profile</a>
       </span>
     </div>
   </div>
@@ -537,7 +537,7 @@ const Header = () => {
                 </svg>
               </a>
               <a
-                href="https://leetcode.com/u/qoHaLDRJ8N/"
+                href="https://leetcode.com/u/Amresh9122/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-600 hover:text-blue-600 transition-colors"
@@ -620,7 +620,7 @@ const Header = () => {
                     <Linkedin className="w-5 h-5" />
                   </a>
                   <a
-                    href="https://leetcode.com/u/qoHaLDRJ8N/"
+                    href="https://leetcode.com/u/Amresh9122/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-gray-600 hover:text-blue-600 transition-colors"
@@ -865,7 +865,7 @@ const Header = () => {
                       <span className="flex items-center">
                         <Code className="w-2 sm:w-3 h-2 sm:h-3 mr-1" />
                         <a 
-                          href="https://leetcode.com/u/qoHaLDRJ8N/" 
+                          href="https://leetcode.com/u/Amresh9122/" 
                           target="_blank" 
                           rel="noopener noreferrer"
                           className="text-blue-600 hover:underline"

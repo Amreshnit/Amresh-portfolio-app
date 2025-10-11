@@ -125,7 +125,7 @@ Sent from portfolio contact form
     {
       icon: Code2,
       label: "LeetCode",
-      href: "https://leetcode.com/u/qoHaLDRJ8N/",
+      href: "https://leetcode.com/u/Amresh9122/",
       description: "Coding challenges and problem-solving skills",
       className: "hover:bg-orange-50 dark:hover:bg-orange-950/20"
     }

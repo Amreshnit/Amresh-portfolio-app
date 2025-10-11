@@ -33,7 +33,7 @@ const Footer = () => {
     },
     {
       icon: Code2,
-      href: "https://leetcode.com/u/qoHaLDRJ8N/",
+      href: "https://leetcode.com/u/Amresh9122/",
       label: "LeetCode",
       color: "hover:text-orange-400"
     },

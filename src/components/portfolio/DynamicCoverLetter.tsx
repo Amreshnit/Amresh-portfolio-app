@@ -353,7 +353,7 @@ const DynamicCoverLetter = () => {
         <a href="https://github.com/Amreshnit" target="_blank" rel="noopener noreferrer">GitHub Portfolio</a>
       </span> | 
       <span class="contact-link">
-        <a href="https://leetcode.com/u/qoHaLDRJ8N/" target="_blank" rel="noopener noreferrer">LeetCode Profile</a>
+        <a href="https://leetcode.com/u/Amresh9122/" target="_blank" rel="noopener noreferrer">LeetCode Profile</a>
       </span>
     </div>
   </div>
@@ -627,7 +627,7 @@ const DynamicCoverLetter = () => {
                       <span className="flex items-center">
                         <Code className="w-3 h-3 mr-1" />
                         <a 
-                          href="https://leetcode.com/u/qoHaLDRJ8N/" 
+                          href="https://leetcode.com/u/Amresh9122/" 
                           target="_blank" 
                           rel="noopener noreferrer"
                           className="text-blue-600 hover:underline"
