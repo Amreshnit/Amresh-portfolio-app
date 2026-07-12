@@ -91,7 +91,7 @@ const ResumeBuilder1 = () => {
       github: "github.com/Amreshnit",
       portfolio: "amreshkumar.dev"
     },
-    summary: "Results-driven Software Engineer with 2+ years of experience in developing scalable enterprise applications using Java, Spring Boot, and microservices architecture. Proven track record in delivering high-performance solutions, optimizing system efficiency, and collaborating with cross-functional teams to drive business objectives.",
+    summary: "Results-driven Software Engineer with 3.5+ years of experience in developing scalable enterprise applications using Java, Spring Boot, microservices architecture, PostgreSQL, Azure, and Databricks. Proven track record in delivering high-performance solutions, optimizing system efficiency, and collaborating with cross-functional teams to drive business objectives.",
     experience: [
       {
         company: "Kanerika Software",

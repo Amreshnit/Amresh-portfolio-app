@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
+import { PROFILE, formatExperienceDuration } from "@/lib/portfolio-profile";
 import { Menu, X, Download, FileText, Building, Calendar, Github, Linkedin, Code } from "lucide-react";
 
 interface CompanyDetails {
@@ -25,8 +26,8 @@ const Header = () => {
     address: "",
     position: "Java Backend Developer",
     subject: "Application for Java Backend Developer Position",
-    yearsOfExperience: "2+",
-    selectedSkills: ["Java 8+", "Spring Boot", "Microservices", "REST APIs"],
+    yearsOfExperience: formatExperienceDuration(),
+    selectedSkills: [...PROFILE.coverLetterSkills],
     careerLevel: "mid-level",
     industryFocus: "enterprise software development",
     currentOrganization: "Kanerika Software",
@@ -60,7 +61,7 @@ const Header = () => {
 
   const handleResumeDownload = () => {
     // Open PDF in new tab instead of downloading
-    window.open('/Amresh_Kumar_Software_Engineer.pdf', '_blank');
+    window.open(PROFILE.resumePath, '_blank', 'noopener,noreferrer');
   };
 
   const getCurrentDate = () => {
@@ -452,8 +453,8 @@ const Header = () => {
       address: "",
       position: "Java Backend Developer",
       subject: "Application for Java Backend Developer Position",
-      yearsOfExperience: "2+",
-      selectedSkills: ["Java 8+", "Spring Boot", "Microservices", "REST APIs"],
+      yearsOfExperience: formatExperienceDuration(),
+      selectedSkills: [...PROFILE.coverLetterSkills],
       careerLevel: "mid-level",
       industryFocus: "enterprise software development",
       currentOrganization: "Kanerika Software",

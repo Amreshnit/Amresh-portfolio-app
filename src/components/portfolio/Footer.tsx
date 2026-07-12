@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { PROFILE } from "@/lib/portfolio-profile";
 import { Github, Linkedin, Code2, Mail, Phone, MapPin, Heart, Download, MessageCircle } from "lucide-react";
 import { useState, useEffect } from "react";
 
@@ -236,8 +237,8 @@ const Footer = () => {
                 className="relative overflow-hidden transition-all duration-300 hover:shadow-lg hover:scale-105 border-primary/20 hover:border-primary/40"
               >
                 <a 
-                  href="/Amresh_Kumar_Software_Engineer.pdf" 
-                  download="Amresh_Kumar_Software_Engineer.pdf"
+                  href={PROFILE.resumePath} 
+                  download={PROFILE.resumeFileName}
                   className="flex items-center gap-2 relative z-10"
                 >
                   <Download className="w-4 h-4 transition-transform duration-300 group-hover:scale-110 group-hover:-translate-y-0.5" />
