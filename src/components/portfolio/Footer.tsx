@@ -91,8 +91,7 @@ const Footer = () => {
                 </h3>
                 <div className="relative group">
                   <p className="text-muted-foreground max-w-md leading-relaxed transform transition-all duration-500 hover:text-foreground">
-                    Java Backend Developer passionate about building scalable, secure, and efficient 
-                    backend systems. Always learning and growing in the world of technology.
+                    AI and full-stack software engineer building useful products across React, Angular, Java and Python.
                   </p>
                   <div className="absolute -left-2 top-0 w-1 h-full bg-gradient-to-b from-blue-600 to-purple-600 rounded-full transform scale-y-0 group-hover:scale-y-100 transition-transform duration-500"></div>
                 </div>
@@ -104,8 +103,8 @@ const Footer = () => {
                   {[
                     { 
                       icon: MapPin, 
-                      text: "Permanent Address: Sasaram, Bihar, India", 
-                      href: "https://www.google.com/maps/search/?api=1&query=JAY+MAHAVEER+REAL+ESTATE%2C+Patel+Bhavan%2C+Patel+Nagar%2C+Ambedkar+path+Badhaiyabag%2C+Takiya%2C+Sasaram%2C+Bihar+821113" 
+                      text: "Based in Hyderabad, India",
+                      href: "https://www.google.com/maps/search/?api=1&query=Hyderabad%2C+India"
                     },
                     { icon: Phone, text: "+91 9122501795", href: "tel:+919122501795" },
                     { 

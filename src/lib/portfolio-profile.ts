@@ -1,26 +1,34 @@
 export const PROFILE = {
   name: "Amresh Kumar",
-  role: "Software Engineer - Java Backend & Data Engineering",
-  shortRole: "Java Backend & Data Engineer",
+  role: "AI & Full-Stack Software Engineer",
+  shortRole: "AI & Full-Stack Engineer",
   location: "Hyderabad, India",
   email: "amreshnitjsr09@gmail.com",
   phone: "+91 9122501795",
-  resumePath: "/Amresh_Kumar_Software_Engineer.pdf",
-  resumeFileName: "Amresh_Kumar_Software_Engineer.pdf",
+  resumePath: "/Amresh_Kumar_Full_Stack_AI_Engineer.pdf",
+  resumeFileName: "Amresh_Kumar_Full_Stack_AI_Engineer.pdf",
   professionalStartDate: {
     year: 2023,
     monthIndex: 0,
     day: 1,
   },
-  coverLetterSkills: ["Java", "Spring Boot", "Microservices", "PostgreSQL", "Azure", "Databricks"],
+  coverLetterSkills: ["React", "Angular", "Java", "Python", "AI integrations", "Spring Boot"],
   skillGroups: [
     {
       category: "Languages & CS",
-      items: ["Java", "SQL", "C++", "DSA", "OOP", "Multithreading", "Design Patterns"],
+      items: ["Java", "Python", "SQL", "C++", "DSA", "OOP", "Multithreading", "Data Structures", "Design Patterns"],
+    },
+    {
+      category: "Frontend & Product UI",
+      items: ["React", "Angular", "TypeScript", "JavaScript", "HTML", "CSS"],
     },
     {
       category: "Backend & APIs",
       items: ["Spring Boot", "Spring MVC", "Spring Data JPA", "Spring Security", "Hibernate", "RESTful APIs", "Apache Kafka"],
+    },
+    {
+      category: "AI & Product Engineering",
+      items: ["AI Integrations", "Document Intelligence", "AI-assisted Development", "Vibe Coding"],
     },
     {
       category: "Data Engineering",
@@ -40,10 +48,10 @@ export const PROFILE = {
     },
   ],
   highlights: [
-    "Automated document extraction pipeline processing about 2,000 files per day.",
-    "Built a 30+ KPI analytics dashboard with PostgreSQL materialized views and targeted indexing.",
-    "Delivered 30+ production REST APIs supporting about 30,000 concurrent users.",
-    "Extended platform data support across Databricks, Azure Fabric, Azure Blob Storage, and MFA-secured mailbox sources.",
+    "Built end-to-end workflow features spanning the Angular UI, Java transformation logic, and automated specs.",
+    "Integrated AI model discovery and document extraction into enterprise data workflows.",
+    "Delivered 30+ production APIs and data workflows supporting analytics and platform operations.",
+    "Worked across product UI, API, connector, data integration and platform services.",
   ],
 };
 

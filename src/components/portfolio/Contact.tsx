@@ -72,7 +72,7 @@ Sent from portfolio contact form
   };
 
   const handleMapClick = () => {
-    const mapUrl = "https://www.google.com/maps/dir//Plot+A147%26148%26149,+Kondapur,+Raghavendra+Colony,+Telangana+500084/@17.473488,78.2777552,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x3bcb937c92815677:0x659e33a03a5109c8!2m2!1d78.3601571!2d17.473505?entry=ttu&g_ep=EgoyMDI1MDkyOS4wIKXMDSoASAFQAw%3D%3D";
+    const mapUrl = "https://www.google.com/maps/search/?api=1&query=Hyderabad%2C+India";
     window.open(mapUrl, '_blank');
   };
 
@@ -92,16 +92,9 @@ Sent from portfolio contact form
       className: "hover:bg-green-50 dark:hover:bg-green-950/20"
     },
     {
-      icon: Phone,
-      label: "Alternate Phone",
-      value: "+91 7003417183",
-      onClick: () => handlePhoneClick("+917003417183"),
-      className: "hover:bg-green-50 dark:hover:bg-green-950/20"
-    },
-    {
       icon: MapPin,
       label: "Location",
-      value: "Sritas Sri Nivasam, Plot A147&148&149, Kondapur, Raghavendra Colony, Telangana 500084",
+      value: "Hyderabad, India",
       onClick: handleMapClick,
       className: "hover:bg-red-50 dark:hover:bg-red-950/20"
     }
@@ -237,7 +230,7 @@ Sent from portfolio contact form
                   <CardContent className="p-0">
                     <div className="relative h-64 w-full">
                       <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3805.7116487105336!2d78.35758207462891!3d17.473510100319434!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb937c92815677%3A0x659e33a03a5109c8!2sSritas%20Sri%20Nivasam!5e0!3m2!1sen!2sin!4v1759405183129!5m2!1sen!2sin"
+                        src="https://maps.google.com/maps?q=Hyderabad%2C%20India&output=embed"
                         width="100%"
                         height="100%"
                         style={{ border: 0 }}
