@@ -718,3 +718,150 @@
   .credential-id code { font-size: 7px; }
   .contact-details { display: grid; }
 }
+
+/* Higher contrast and more legible type for quick portfolio scanning. */
+.portfolio-site {
+  --ink: #172337;
+  --muted: #506078;
+  --paper: #f6f7fb;
+  --white: #fff;
+  --green: #405cda;
+  --green-dark: #101c35;
+  --lime: #c6d6ff;
+  --line: rgba(23, 35, 55, .15);
+  background: var(--paper);
+}
+
+.site-header { background: rgba(246, 247, 251, .96); }
+.desktop-nav a, .nav-cta { color: #46556e; font-size: 12px; }
+.desktop-nav a:hover, .nav-cta:hover { color: var(--green); }
+.brand-mark { border-color: rgba(64, 92, 218, .32); color: var(--green); }
+.brand-name small { color: #65738a; }
+.eyebrow { color: #334fc3; font-size: 10px; }
+.eyebrow > span:not(.status-dot) { color: #687791; }
+.hero-description { color: #4d5d75; font-size: 16px; line-height: 1.8; }
+.hero h1 span, .section-heading h2 span, .experience-aside h2 span, .about-copy h2 span { color: #405cda; }
+.button-primary { background: #17294d; }
+.button-primary:hover { background: #263c69; }
+.social-links a, .contact-socials a { color: #485a72; font-size: 12px; }
+.portrait-note { background: #fff; box-shadow: 0 16px 42px rgba(22, 35, 62, .15); }
+.status-dot { background: #4777db; box-shadow: 0 0 0 4px rgba(71, 119, 219, .14); }
+.proof-strip strong { font-size: 26px; }
+.proof-strip span { color: #52627a; font-size: 11px; }
+
+.work-section { background: linear-gradient(145deg, #101b33 0%, #172747 60%, #111d37 100%); }
+.eyebrow-light { color: #a6c5ff; }
+.eyebrow-light > span { color: rgba(231, 238, 255, .63) !important; }
+.section-heading-dark h2 span { color: #a6d9ff; }
+.section-intro { color: #d2dbee; font-size: 14px; line-height: 1.8; }
+.work-subheading > span { color: #b7d9ff; font-size: 10px; }
+.work-subheading > p { color: #d1daeb; font-size: 12px; }
+.project-card, .legacy-project { border-color: rgba(216, 227, 250, .22); background: rgba(255, 255, 255, .065); }
+.project-card:hover { border-color: rgba(166, 217, 255, .55); background: rgba(255, 255, 255, .095); }
+.project-topline { color: #c0cde4; }
+.project-topline > span { font-size: 9px; }
+.project-topline > svg { color: #a6d9ff; }
+.project-card h3 { font-size: 27px; }
+.project-card > p { color: #e0e6f1; font-size: 14px; line-height: 1.75; }
+.project-tags span { border-color: rgba(216, 227, 250, .23); color: #e1e9f6; font-size: 10px; }
+.work-footnote { color: #d4deef; font-size: 10px; }
+.legacy-result { color: #b9dcff; font-size: 14px; }
+.legacy-project h3 { font-size: 25px; }
+.legacy-description { color: #dbe3f0; font-size: 13px; line-height: 1.75; }
+.legacy-project li { color: #e0e7f2; font-size: 12px; line-height: 1.7; }
+.legacy-project li svg { color: #9cd8ff; }
+.legacy-project-icon { border-color: rgba(166, 217, 255, .44); color: #a6d9ff; }
+.capability-strip { border-color: rgba(216, 227, 250, .23); background: rgba(255, 255, 255, .07); }
+.capability-strip > span:not(.capability-label) { color: #e0e7f2; }
+.capability-strip .capability-label { color: #b9dcff; }
+
+.about-copy > p:not(.eyebrow) { color: #4d5d75; font-size: 14px; line-height: 1.85; }
+.about-impact { border-color: rgba(23, 35, 55, .15); background: #fff; box-shadow: 0 10px 30px rgba(24, 38, 65, .05); }
+.about-impact h3 { font-size: 20px; }
+.about-impact p { color: #52627a; font-size: 12px; line-height: 1.75; }
+.experience-aside > p:not(.eyebrow) { color: #526078; font-size: 14px; line-height: 1.85; }
+.timeline-meta { color: #6d7b92; font-size: 9px; }
+.timeline-company { color: #405cda; font-size: 12px; }
+.timeline-copy { color: #4d5d75; font-size: 14px; line-height: 1.85; }
+.timeline-entry ul { color: #4d5b70; font-size: 13px; line-height: 1.8; }
+.timeline-team-note { border-left-color: #405cda; background: #edf1ff; }
+.timeline-team-note strong { color: #21376c; font-size: 12px; }
+.timeline-team-note p { color: #4e5e78; font-size: 12px; }
+.experience-tags span { color: #4b5c73; font-size: 10px; }
+.text-link { color: #334fc3; font-size: 11px; }
+.experience-mark { border-color: rgba(64, 92, 218, .22); background: #fff; }
+.experience-mark > span { color: #405cda; }
+
+.toolkit-section, .certifications-section { background: #edf1fa; }
+.toolkit-heading .section-intro, .education-heading .section-intro, .certification-heading .section-intro { color: #52627a; }
+.skill-group { border-color: rgba(23, 35, 55, .14); background: #fff; box-shadow: 0 7px 22px rgba(24, 38, 65, .045); }
+.skill-group h3 { color: #1b2b45; font-size: 19px; }
+.toolkit-tags span { color: #42536b; font-size: 10px; }
+.skill-group .toolkit-tags span { border-color: rgba(23, 35, 55, .13); background: #f4f6fc; color: #3f5069; font-size: 10px; }
+.vibe-note { border-color: rgba(64, 92, 218, .24); background: #fff; }
+.vibe-icon { background: #e5ebff; color: #405cda; }
+.vibe-note p { color: #52627a; font-size: 13px; line-height: 1.8; }
+.vibe-note p strong { color: #1b2b45; }
+.vibe-label { color: #53658a; font-size: 8px; }
+
+.education-heading h2, .certification-heading h2 { color: #1b2b45; }
+.education-heading h2 span, .certification-heading h2 span { color: #405cda; }
+.education-detail { border-color: rgba(23, 35, 55, .14); background: #fff; box-shadow: 0 7px 22px rgba(24, 38, 65, .045); }
+.education-level { color: #334fc3; font-size: 9px; }
+.education-period { color: #53647c; font-size: 9px; }
+.education-main h3 { color: #1b2b45; font-size: 23px; }
+.education-institution { color: #3f516a; font-size: 12px; }
+.education-institution span, .education-location, .education-description { color: #53647c; }
+.education-location { font-size: 10px; }
+.education-grade { border-color: rgba(64, 92, 218, .25); background: #f2f5ff; color: #334fc3; font-size: 9px; }
+.education-description { font-size: 12px; line-height: 1.8; }
+.education-highlights > span { color: #66758c; font-size: 8px; }
+.education-highlights li { border-color: rgba(23, 35, 55, .12); background: #f7f8fc; color: #475871; font-size: 9px; }
+.institution-photo, .credential-link { color: #41536d; font-size: 10px; }
+.credential-link { color: #334fc3; }
+.education-summary { border-color: rgba(64, 92, 218, .2); background: #e8edff; color: #465873; font-size: 11px; }
+.education-summary svg, .education-summary strong { color: #3049b1; }
+
+.certification-stats { border-color: rgba(23, 35, 55, .16); background: #fff; }
+.certification-stats > div { border-color: rgba(23, 35, 55, .12); }
+.certification-stats strong { color: #334fc3; font-size: 22px; }
+.certification-stats span { color: #52627a; font-size: 10px; }
+.certification-card { border-color: rgba(23, 35, 55, .14); background: #fff; box-shadow: 0 7px 22px rgba(24, 38, 65, .045); }
+.certification-year { color: #334fc3; font-size: 9px; }
+.certification-card h3 { color: #1b2b45; font-size: 22px; }
+.certification-card > p { color: #52627a; font-size: 12px; line-height: 1.8; }
+.certification-card .toolkit-tags span { background: #f4f6fc; color: #465873; font-size: 9px; }
+.credential-id > span { color: #65748b; font-size: 8px; }
+.credential-id code { color: #445570; font-size: 8px; }
+.verify-link { color: #334fc3; font-size: 10px; }
+
+.contact-section { background: linear-gradient(140deg, #101b33, #19294b); }
+.contact-inner h2 span { color: #a6d9ff; }
+.contact-copy { color: #d5deed; font-size: 14px; line-height: 1.8; }
+.contact-email { border-bottom-color: rgba(230, 238, 255, .35); font-size: clamp(18px, 2.1vw, 23px); }
+.contact-details { color: #d5deed; font-size: 11px; }
+.contact-details svg, .contact-email svg { color: #a6d9ff; }
+.contact-socials a { color: #d5deed; font-size: 11px; }
+.contact-socials a:hover { color: #a6d9ff; }
+.site-footer > span { color: #52627a; font-size: 10px; }
+.back-to-top { color: #435570; font-size: 10px; }
+
+@media (max-width: 650px) {
+  .hero-description { font-size: 15px; }
+  .social-links a { font-size: 10px; }
+  .proof-strip span { font-size: 10px; }
+  .project-card h3 { font-size: 24px; }
+  .project-card > p { font-size: 13px; }
+  .legacy-project h3 { font-size: 22px; }
+  .legacy-description { font-size: 12px; }
+  .legacy-project li { font-size: 11px; }
+  .about-copy > p:not(.eyebrow), .experience-aside > p:not(.eyebrow), .timeline-copy { font-size: 13px; }
+  .timeline-entry ul { font-size: 12px; }
+  .skill-group h3 { font-size: 18px; }
+  .education-main h3 { font-size: 21px; }
+  .education-description { font-size: 11px; }
+  .education-highlights li { font-size: 9px; }
+  .certification-card h3 { font-size: 21px; }
+  .certification-card > p { font-size: 11px; }
+  .contact-copy { font-size: 13px; }
+}
